@@ -4,7 +4,7 @@ class Program
 {
     static void Main(string[] args)
     {
-        // Console.Write("What is the magic number? "); when the user was choosing was the magic number
+        // Console.Write("What is the magic number? "); when the user was choosing the magic number
         // int magicNumber = int.Parse(Console.ReadLine());
         Random randomGenerator = new Random();
         int magicNumber = randomGenerator.Next(1, 101);
