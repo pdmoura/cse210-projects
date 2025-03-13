@@ -23,7 +23,7 @@ class Program
         myResume._jobList.Add(job2);
 
         // Calling the method
-        myResume.DisplayResume();
+        // myResume.DisplayResume();
 
     }
 }
