@@ -13,12 +13,12 @@ class Program
 
         while (true)
         {
-            Console.WriteLine("Journal Menu:");
-            Console.WriteLine("1. Write a New Entry");
-            Console.WriteLine("2. Display Journal");
-            Console.WriteLine("3. Save Journal to File");
-            Console.WriteLine("4. Load Journal from File");
-            Console.WriteLine("5. Exit");
+            Console.WriteLine("Please select one of the following choices:");
+            Console.WriteLine("1. Write");
+            Console.WriteLine("2. Display");
+            Console.WriteLine("3. Load");
+            Console.WriteLine("4. Save");
+            Console.WriteLine("5. Quit");
             Console.Write("What would you like to do? ");
 
             string choice = Console.ReadLine();
@@ -37,10 +37,10 @@ class Program
                     journal.DisplayAll();
                     break;
                 case "3":
-                    journal.SaveToFile();
+                    journal.LoadFromFile();
                     break;
                 case "4":
-                    journal.LoadFromFile();
+                    journal.SaveToFile();
                     break;
                 case "5":
                     Console.WriteLine("Goodbye!");
