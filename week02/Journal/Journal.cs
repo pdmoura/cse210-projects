@@ -68,7 +68,7 @@ public class Journal
         {
             using (StreamWriter writer = new StreamWriter(fileName))
             {
-                writer.WriteLine($"PASSWORD:{existingPassword}"); // Keep the original password
+                writer.WriteLine($"PASSWORD:{existingPassword}"); // If the file exists keep the original password
 
                 foreach (var entry in _entries)
                 {
@@ -102,7 +102,7 @@ public class Journal
                 Console.Write("Enter the password: ");
                 string enteredPassword = Console.ReadLine();
 
-                // If the password is incorrect, tell the user and stop the program
+                // If the password is incorrect, tell the user and return to menu
                 if (enteredPassword != storedPassword)
                 {
                     Console.WriteLine("Incorrect password! Access denied.");
