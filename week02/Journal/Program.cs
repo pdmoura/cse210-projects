@@ -2,6 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 
+// As a stretch to exceed the requirements, I added to the program I added the password feature for the journal so 
+// that the user will only be able to load a file after typing the password that was defined when the file was saved.
+
 class Program
 {
     static void Main(string[] args)

@@ -1,0 +1,19 @@
+PASSWORD:12345
+Date: 13/03/2025 - Prompt:  What moment today made you feel proud of yourself?
+Finishing the program Journal using all the classes I needed.
+
+Date: 13/03/2025 - Prompt:  Was there a moment today when you felt truly present or at peace? Describe it.
+Right now while writing this I feel really proud of myselkf and at peace, so yeah I guess this is amazing.
+
+Date: 13/03/2025 - Prompt: What’s a small victory you experienced today, even if it felt insignificant?
+Literally writing this right now in this program I created in C#, I feel like I'm able to do anything I want now!
+
+Date: 14/03/2025 - Prompt: Looking back on today, what’s one thing you’d do differently?
+I would have slept earlier to rest more and have a better morning tomorrow, but anyway it's already gone, now it's 2:06 am...
+
+Date: 14/03/2025 - Prompt: Was there something you did today that took you out of your comfort zone? How did it feel?
+Writing this freaking program lol and trying to be creative while doing it
+
+Date: 14/03/2025 - Prompt: What did you do today to take care of your mental or physical health?
+I need to sleep more so that my brain rests more. But idk,I guess I am a night person.
+
