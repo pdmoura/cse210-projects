@@ -63,7 +63,7 @@ public class Journal
             Console.Write("Set a password to protect this journal: ");
             existingPassword = Console.ReadLine();
         }
-        
+
         try
         {
             using (StreamWriter writer = new StreamWriter(fileName))
