@@ -106,13 +106,12 @@ class Journal
                 string line;
                 while ((line = reader.ReadLine()) != null)
                 {
-                    string prompt = line.Substring(6,10);  // Assuming the date is at the beginning.
+                    string prompt = line.Substring(6, 10);  // Assuming the date is at the beginning.
                     string response = reader.ReadLine().Substring(10);  // Skipping "Response: ".
                     entries.Add(new JournalEntry(prompt, response));
                     reader.ReadLine();  // Skip the blank line between entries.
                 }
             }
-
             Console.WriteLine("Journal loaded successfully!\n");
         }
         catch (Exception ex)
