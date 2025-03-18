@@ -28,11 +28,13 @@ public class Fraction
         return _top;
     }
 
+    // Setters should accept a single parameter and have a void return type.
     public void SetTop(int top)
     {
         _top = top;
     }
 
+    // Getters should not have any parameters and should not prompt the user for anything, but instead, simply return a value.
     public int GetBottom()
     {
         return _bottom;
