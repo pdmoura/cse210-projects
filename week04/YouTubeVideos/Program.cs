@@ -1,15 +1,17 @@
 using System;
 using System.Collections.Generic;
+using System.Transactions;
+using Microsoft.VisualBasic;
 
 class Program
 {
     static void Main(string[] args)
     {
         // Creating videos and a list to store them
-        Video video1 = new Video("Python Basics", "Code Academy", 3);
-        Video video2 = new Video("Flask Web Development", "Code Bro", 4);
-        Video video3 = new Video("Understanding HTML & CSS", "Microsoft Academy", 3);
-        Video video4 = new Video("Full C# course", "freeCodeCamp", 4);
+        Video video1 = new Video("Python Basics", "Code Academy", 120);
+        Video video2 = new Video("Flask Web Development", "Code Bro", 60);
+        Video video3 = new Video("Understanding HTML & CSS", "Microsoft Academy", 260);
+        Video video4 = new Video("Full C# course", "freeCodeCamp", 3600);
         List<Video> videos = new List<Video> { video1, video2, video3, video4 };
 
         // Creating the comments while adding them to the videos
@@ -27,6 +29,14 @@ class Program
         video3.AddComment(new Comment("Grace", "Thanks for making Flask so simple! I feel much more confident using Flask for my projects now. The breakdown of the code was super helpful."));
         video3.AddComment(new Comment("Hank", "Flask finally makes sense to me after watching this tutorial. The project-based approach helped me learn by doing, and I can't wait to apply what I learned."));
 
+        //Iterate through the list of videos and Display their information
+        foreach (Video video in videos)
+        {
+            video.Display();
+        }
 
     }
 }
+
+
+
