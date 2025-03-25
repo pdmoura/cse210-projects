@@ -29,6 +29,7 @@ class Program
             else
             {
                 scripture.HideRandomWords(2);
+                // Hides 2 random words whenever the user presses enter
             }
         }
 

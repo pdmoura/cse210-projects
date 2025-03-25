@@ -1,3 +1,6 @@
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
+
 public class Scripture
 {
     private Reference _reference;
@@ -7,9 +10,12 @@ public class Scripture
     {
         _reference = reference;
         List<string> wordsList = new List<string>(text.Split(' '));
+
         foreach (string word in wordsList)
         {
-            _words.Add(new Word(word));
+            Word newWord = new Word(word);
+
+            _words.Add(newWord);
         }
     }
 

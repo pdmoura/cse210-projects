@@ -1,6 +1,7 @@
 public class Word
 {
     private string _text;
+
     private bool _isHidden;
 
     public Word(string text)
@@ -30,8 +31,8 @@ public class Word
         if (_isHidden)
         {
             //return the word characters in a hidden format where they were replaced to _
-            string hiddenWord = new string('_', _text.Length);
-            return hiddenWord;
+            string hiddenWord = new string('_', _text.Length);//_____
+            return hiddenWord; //____
         }
         else
         {
