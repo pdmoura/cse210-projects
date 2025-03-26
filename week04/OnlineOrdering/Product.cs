@@ -14,7 +14,7 @@ public class Product
         _quantity = quantity;
 
     }
-
+    // "C270 HD WEBCAM", 0772, 194.59, 55
     public double CalcProductPrice()
     {
         double totalCostOfProduct = _price * _quantity;
@@ -25,4 +25,5 @@ public class Product
     {
         return $"{_name}: {_productID}";
     }
+
 }

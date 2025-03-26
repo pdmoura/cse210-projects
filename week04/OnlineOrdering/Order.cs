@@ -6,6 +6,7 @@ public class Order
 
     public Order(List<Product> products, Customer customer)
     {
+
         _products = products;
         _customer = customer;
     }
