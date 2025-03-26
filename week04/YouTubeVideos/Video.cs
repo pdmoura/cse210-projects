@@ -34,6 +34,6 @@ public class Video
             Console.WriteLine($"- {comment.ShowComment()}");
         }
 
-        Console.WriteLine("\n" + new string('-', 40) + "\n");
+        Console.WriteLine("\n" + new string('-', 180) + "\n");
     }
 }
