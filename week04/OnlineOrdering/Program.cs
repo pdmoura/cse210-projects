@@ -51,7 +51,7 @@ class Program
             Console.WriteLine($"Order N° {i}");
             order.GetPackingLabel();
             order.GetShippingLabel();
-            Console.WriteLine($"Total Cost of the order: {order.CalcTotalPrice():F2}");
+            Console.WriteLine($"Total Cost of the order: $ {order.CalcTotalPrice():F2}");
             i++;
         }
 
