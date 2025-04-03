@@ -34,7 +34,7 @@ public class ReflectingActivity : Activity
 
     public void ShowQuestions()
     {
-        Console.WriteLine("Now ponder on each of the following questions");
+        Console.WriteLine("Now ponder on each of the following questions as they related to this experience.");
         Console.Write("You may begin in: ");
         ShowCountDown(5);
         Console.Clear();
@@ -43,8 +43,7 @@ public class ReflectingActivity : Activity
         while (DateTime.Now < endTime)
         {
             Console.Write($"{ShowRandomPhrases(_questions)} ");
-            ShowLoadingAnimation(5);
-
+            ShowLoadingAnimation(10);
 
             // Check if time is up before continuing the next cycle
             if (DateTime.Now >= endTime)
