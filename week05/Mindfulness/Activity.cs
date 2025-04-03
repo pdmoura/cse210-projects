@@ -20,6 +20,7 @@ public class Activity
         Console.Write("How long, in seconds, would you like for your session? ");
         _activityDuration = int.Parse(Console.ReadLine());
         Console.Clear();
+        ShowStartMessage();
 
     }
 
@@ -32,7 +33,7 @@ public class Activity
     {
         Console.WriteLine("Well done!!");
         ShowLoadingAnimation(5);
-        Console.WriteLine($"\nYou have completed {_activityDuration} seconds of the {_activityName}.");
+        Console.WriteLine($"You have completed {_activityDuration} seconds of the {_activityName}.");
         ShowLoadingAnimation(5);
         Console.Clear();
     }
@@ -46,7 +47,7 @@ public class Activity
         while (DateTime.Now < endtime)
         {
             string s = animationStrings[i];
-            Console.Write(s);
+            Console.Write(s); 
             Thread.Sleep(500);
             Console.Write("\b \b");
             i++;
@@ -56,6 +57,7 @@ public class Activity
                 i = 0;
             }
         }
+        Console.WriteLine();
     }
 
     public void ShowCountDown(int duration)
@@ -70,3 +72,4 @@ public class Activity
     }
 
 }
+                                                                                                       

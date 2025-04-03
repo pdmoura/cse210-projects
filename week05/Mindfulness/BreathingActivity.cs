@@ -6,7 +6,7 @@ public class BreathingActivity : Activity
 
     public void StartActivity()
     {
-        ShowStartMessage();
+        DisplayActivityDescription();
         DateTime starTime = DateTime.Now;
         DateTime endTime = starTime.AddSeconds(_activityDuration);
         bool firstCycle = true;
@@ -14,7 +14,7 @@ public class BreathingActivity : Activity
         {
             if (firstCycle)
             {
-                Console.Write("\nBreathe in... ");
+                Console.Write("Breathe in... ");
                 ShowCountDown(2); // First cycle: Breathe in for 2 seconds
                 Console.Write("Breathe out... ");
                 ShowCountDown(3); // First cycle: Breathe out for 3 seconds
