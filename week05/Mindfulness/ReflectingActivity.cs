@@ -45,7 +45,7 @@ public class ReflectingActivity : Activity
             Console.Write($"{ShowRandomPhrases(_questions)} ");
             ShowLoadingAnimation(5);
 
-            
+
             // Check if time is up before continuing the next cycle
             if (DateTime.Now >= endTime)
             {

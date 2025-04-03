@@ -28,9 +28,6 @@ public class ListingActivity : Activity
         }
         Console.WriteLine($"You listed {_count} itens!\n");
         ShowEndMessage();
-
-
-
     }
 
     public void ShowRandomPrompt()
