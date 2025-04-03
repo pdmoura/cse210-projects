@@ -1,5 +1,3 @@
-using System.Runtime.Intrinsics.Arm;
-
 public class ListingActivity : Activity
 {
     private List<string> _listOfPrompts = new List<string>();
