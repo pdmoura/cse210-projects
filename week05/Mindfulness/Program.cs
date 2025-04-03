@@ -1,10 +1,17 @@
 using System;
 using System.Collections.Generic;
 
+// As a way to exceed requirements I added more prompts and questions, plus I added a counter for each activity and at the end I show the user how many times each activity was performed and close with a nice farewell!
+
 class Program
 {
     static void Main(string[] args)
     {
+        // Initializing counters to keep track of how many times each activity was performed
+        int counterActv1 = 0;
+        int counterActv2 = 0;
+        int counterActv3 = 0;
+
         BreathingActivity activity = new BreathingActivity("Breathing Activity", "This activity will help you relax by walking your through breathing in and out slowly. Clear your mind and focus on your breathing.");
 
         // Creating the lists used in activity 2
@@ -34,15 +41,18 @@ class Program
             if (choice == "1")
             {
                 activity.StartActivity();
+                counterActv1++;
             }
 
             else if (choice == "2")
             {
                 activity2.StartActivity();
+                counterActv2++;
             }
             else if (choice == "3")
             {
                 activity3.StartActivity();
+                counterActv3++;
             }
             else if (choice == "4")
             {
@@ -55,6 +65,11 @@ class Program
                 Console.WriteLine("Invalid answer, choose one option: 1, 2, 3 or 4");
             }
         }
+        Console.WriteLine($"\nDuring this mindfulness session you did:\n");
+        Console.WriteLine($"Breathing activity {counterActv1} times.");
+        Console.WriteLine($"Reflection activity {counterActv1} times.");
+        Console.WriteLine($"Listing activity {counterActv1} times.\n");
+        Console.WriteLine($"Feel free to do another session whenever you need!\n:)\n");
     }
 }
 

@@ -27,6 +27,7 @@ public class ListingActivity : Activity
             _count++;
         }
         Console.WriteLine($"You listed {_count} itens!\n");
+        _count = 0;
         ShowEndMessage();
     }
 
