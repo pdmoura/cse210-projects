@@ -29,6 +29,7 @@ public class Activity
         Console.WriteLine("Get ready...");
         ShowLoadingAnimation(5);
     }
+
     public void ShowEndMessage()
     {
         Console.WriteLine("Well done!!");
@@ -70,6 +71,7 @@ public class Activity
         }
         Console.WriteLine();
     }
+
 
 }
 
