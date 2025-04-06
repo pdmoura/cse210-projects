@@ -1,4 +1,4 @@
-public class Retangle : Shapes
+public class Retangle : Shape
 {
     private double _firstSide;
     private double _secondSide;

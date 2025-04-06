@@ -1,4 +1,4 @@
-public class Circle : Shapes
+public class Circle : Shape
 {
     private double _radius;
 

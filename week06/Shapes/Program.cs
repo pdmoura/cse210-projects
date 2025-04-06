@@ -12,10 +12,10 @@ class Program
 
 
         // Creating a list of Shapes and adding them to the same list
-        List<Shapes> shapes = new List<Shapes> { squareShape, retangleShape, circleShape };
+        List<Shape> shapes = new List<Shape> { squareShape, retangleShape, circleShape };
 
         // Get a custom calculation for each one
-        foreach (Shapes shape in shapes)
+        foreach (Shape shape in shapes)
         {
             double shapeArea = shape.GetArea();
             Console.WriteLine($"The area of the {shape.GetColor()} shape is: {shapeArea}");

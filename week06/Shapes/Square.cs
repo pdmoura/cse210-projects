@@ -1,6 +1,6 @@
 using System.Drawing;
 
-public class Square : Shapes
+public class Square : Shape
 {
     private double _side;
 
