@@ -1,11 +1,11 @@
-public class ChecklistGoal : Goal
+public class CheckListGoal : Goal
 {
     private int _amountCompleted; // How many times this has been done
     private int _target; // How many times it needs to be done
     private int _bonus; // Bonus points when completed
 
     // Constructor that sets up a checklist goal with all its values.
-    public ChecklistGoal(string name, string description, int points, int target, int bonus) : base(name, description, points)
+    public CheckListGoal(string name, string description, int points, int target, int bonus) : base(name, description, points)
     {
         _amountCompleted = 0; // Start at 0
         _target = target;
@@ -47,5 +47,12 @@ public class ChecklistGoal : Goal
     public override string GetStringRepresentation()
     {
         return $"CheckListGoal:{_shortName},{_description},{_points},{_bonus},{_target},{_amountCompleted}";
+    }
+
+
+    //Creating Setter for _amountCompleted
+    public void SetAmountCompleted(int amountCompleted)
+    {
+        _amountCompleted = amountCompleted;
     }
 }

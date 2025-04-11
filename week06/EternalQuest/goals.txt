@@ -1,3 +1,5 @@
-100
-SimpleGoal:study scriptures,study everyday 5 min,100,True
-EternalGoal:Pray always,pray every morning when waking up,1000
+130
+SimpleGoal:Give a talk,talk at sacrament meeting,20,True
+EternalGoal:Study the scriptures,Study for at least 5 minutes,100
+CheckListGoal:Attend the temple,Go to the temple and perform any ordinance,50,1000,2,0
+CheckListGoal:Go to the gym,Go at least 3 times a week,55,1500,3,2

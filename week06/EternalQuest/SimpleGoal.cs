@@ -21,6 +21,13 @@ public class SimpleGoal : Goal
         }
     }
 
+    //Setter for isComplete
+    public void SetIsComplete(bool completed)
+    {
+        _isComplete = completed;
+    }
+
+
     public override bool IsComplete()
     {
         return _isComplete;

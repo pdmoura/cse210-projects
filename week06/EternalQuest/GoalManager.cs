@@ -8,7 +8,7 @@ public class GoalManager
     {
     }
 
-    public void Start() 
+    public void Start()
     {
         bool quit = false;
         while (!quit)
@@ -57,7 +57,7 @@ public class GoalManager
                             int target = int.Parse(Console.ReadLine());
                             Console.Write("What is the bonus for accomplishing it that many times? ");
                             int bonus = int.Parse(Console.ReadLine());
-                            CreateGoal(new ChecklistGoal(name, description, points, target, bonus));
+                            CreateGoal(new CheckListGoal(name, description, points, target, bonus));
                             break;
                         default:
                             Console.WriteLine("Invalid goal type.");
@@ -66,6 +66,7 @@ public class GoalManager
                     break;
 
                 case "2":
+                    Console.WriteLine("The goals are:");
                     ListGoalNames();
                     break;
 
@@ -123,7 +124,7 @@ public class GoalManager
     {
         foreach (var goal in _goals)
         {
-            Console.WriteLine(goal.GetStringRepresentation());
+            Console.WriteLine($"{goal.GetStringRepresentation()}");
         }
     }
 
@@ -140,7 +141,7 @@ public class GoalManager
             Goal goal = _goals[goalIndex];
             int before = goal.IsComplete() ? 0 : goal.GetPoints();
             goal.RecordEvent();
-            int after = goal.IsComplete() ? goal.GetPoints() : (goal is ChecklistGoal ? ((ChecklistGoal)goal).GetPoints() : goal.GetPoints());
+            int after = goal.IsComplete() ? goal.GetPoints() : (goal is CheckListGoal ? ((CheckListGoal)goal).GetPoints() : goal.GetPoints());
             _score += after;
             Console.WriteLine($"Event recorded! You earned {after} points.");
         }
@@ -167,9 +168,9 @@ public class GoalManager
     {
         if (File.Exists(fileName))
         {
-            _goals.Clear(); // Clear current goals
-            string[] lines = File.ReadAllLines(fileName); // Reads file lines
-            _score = int.Parse(lines[0]); // First line is the score
+            _goals.Clear();
+            string[] lines = File.ReadAllLines(fileName);
+            _score = int.Parse(lines[0]);
 
             for (int i = 1; i < lines.Length; i++)
             {
@@ -181,15 +182,18 @@ public class GoalManager
                 {
                     case "SimpleGoal":
                         SimpleGoal sg = new SimpleGoal(data[0], data[1], int.Parse(data[2]));
-                        if (bool.Parse(data[3])) sg.RecordEvent();
+                        // Directly set the _isComplete state
+                        sg.SetIsComplete(bool.Parse(data[3]));
                         _goals.Add(sg);
                         break;
                     case "EternalGoal":
                         _goals.Add(new EternalGoal(data[0], data[1], int.Parse(data[2])));
                         break;
-                    case "ChecklistGoal":
-                        ChecklistGoal cg = new ChecklistGoal(data[0], data[1], int.Parse(data[2]), int.Parse(data[3]), int.Parse(data[4]));
-                        for (int j = 0; j < int.Parse(data[5]); j++) cg.RecordEvent();
+                    case "CheckListGoal":
+                        // Format: Name, Description, Points, Bonus, Target, AmountCompleted
+                        CheckListGoal cg = new CheckListGoal(data[0], data[1], int.Parse(data[2]), int.Parse(data[4]), int.Parse(data[3]));
+                        // Directly set the _amountCompleted
+                        cg.SetAmountCompleted(int.Parse(data[5]));
                         _goals.Add(cg);
                         break;
                 }
