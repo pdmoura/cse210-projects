@@ -154,10 +154,10 @@ public class GoalManager
     {
         using (StreamWriter outputFile = new StreamWriter(fileName))
         {
-            outputFile.WriteLine(_score);
+            outputFile.WriteLine(_score); // Save score on the first line
             foreach (var goal in _goals)
             {
-                outputFile.WriteLine(goal.GetStringRepresentation());
+                outputFile.WriteLine(goal.GetStringRepresentation()); // Save each goal on a new line
             }
         }
         Console.WriteLine("Goals saved successfully.");
@@ -167,9 +167,9 @@ public class GoalManager
     {
         if (File.Exists(fileName))
         {
-            _goals.Clear();
-            string[] lines = File.ReadAllLines(fileName);
-            _score = int.Parse(lines[0]);
+            _goals.Clear(); // Clear current goals
+            string[] lines = File.ReadAllLines(fileName); // Reads file lines
+            _score = int.Parse(lines[0]); // First line is the score
 
             for (int i = 1; i < lines.Length; i++)
             {
