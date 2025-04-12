@@ -161,6 +161,7 @@ public class GoalManager
                 outputFile.WriteLine(goal.GetStringRepresentation()); // Save each goal on a new line
             }
         }
+        Console.Clear();
         Console.WriteLine("Goals saved successfully.");
     }
 
