@@ -28,7 +28,8 @@ public class GoalManager
 
             switch (choice)
             {
-                case "1":
+                case "1": //if (choice == "1")
+
                     // Handles goal creation
                     Console.WriteLine("The types of Goals are:");
                     Console.WriteLine("  1. Simple Goal");
@@ -43,7 +44,6 @@ public class GoalManager
                     string description = Console.ReadLine();
                     Console.Write("What is the amount of points associated with this goal? ");
                     int points = int.Parse(Console.ReadLine());
-
                     switch (typeInput)
                     {
                         case "1":
@@ -60,14 +60,16 @@ public class GoalManager
                             CreateGoal(new CheckListGoal(name, description, points, target, bonus));
                             break;
                         default:
+                            Console.Clear();
                             Console.WriteLine("Invalid goal type.");
                             break;
                     }
                     break;
 
                 case "2":
+                    Console.Clear();
                     Console.WriteLine("The goals are:");
-                    ListGoalNames();
+                    ListGoalDetails();
                     break;
 
                 case "3":
@@ -83,23 +85,16 @@ public class GoalManager
                     break;
 
                 case "5":
-                    ListGoalNames();
-                    Console.Write("Which goal did you accomplish? ");
-                    if (int.TryParse(Console.ReadLine(), out int index))
-                    {
-                        RecordEvent(index - 1);
-                    }
-                    else
-                    {
-                        Console.WriteLine("Invalid input.");
-                    }
+                    RecordEvent();
                     break;
 
                 case "6":
+                    Console.WriteLine("Goodbye! Feel free to play again later!");
                     quit = true;
                     break;
 
                 default:
+                    Console.Clear();
                     Console.WriteLine("Invalid menu option.");
                     break;
             }
@@ -116,15 +111,16 @@ public class GoalManager
     {
         for (int i = 0; i < _goals.Count; i++)
         {
-            Console.WriteLine($"{i + 1}. {_goals[i].GetDetailsString()}");
+            Console.WriteLine($"{i + 1}. {_goals[i].GetShortName()}");
         }
     }
 
     public void ListGoalDetails()
     {
-        foreach (var goal in _goals)
+
+        for (int i = 0; i < _goals.Count; i++)
         {
-            Console.WriteLine($"{goal.GetStringRepresentation()}");
+            Console.WriteLine($"{i + 1}. {_goals[i].GetDetailsString()}");
         }
     }
 
@@ -132,24 +128,28 @@ public class GoalManager
     {
         // Take the goal created by the user and add to the list
         _goals.Add(goal);
+        Console.Clear();
+        Console.WriteLine("A new Goal created successfully!");
     }
 
-    public void RecordEvent(int goalIndex)
+    public void RecordEvent()
     {
-        if (goalIndex >= 0 && goalIndex < _goals.Count)
+        ListGoalNames();
+        Console.Write("\nWhich goal did you accomplish? ");
+        if (int.TryParse(Console.ReadLine(), out int index))
         {
-            Goal goal = _goals[goalIndex];
-            int before = goal.IsComplete() ? 0 : goal.GetPoints();
+            Goal goal = _goals[index - 1]; //save the goal that the user picked
             goal.RecordEvent();
-            int after = goal.IsComplete() ? goal.GetPoints() : (goal is CheckListGoal ? ((CheckListGoal)goal).GetPoints() : goal.GetPoints());
-            _score += after;
-            Console.WriteLine($"Event recorded! You earned {after} points.");
+            _score += (goal.IsComplete() && goal is CheckListGoal) ? goal.GetBonus() : goal.GetPoints();
         }
         else
         {
-            Console.WriteLine("Invalid goal index.");
+            Console.WriteLine("Invalid input.");
+            return;
         }
+
     }
+
 
     public void SaveGoals(string fileName)
     {
@@ -198,6 +198,7 @@ public class GoalManager
                         break;
                 }
             }
+            Console.Clear();
             Console.WriteLine("Goals loaded successfully.");
         }
         else
@@ -205,4 +206,5 @@ public class GoalManager
             Console.WriteLine("No saved goals found.");
         }
     }
+
 }

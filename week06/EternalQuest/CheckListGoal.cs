@@ -1,7 +1,7 @@
 public class CheckListGoal : Goal
 {
     private int _amountCompleted; // How many times this has been done
-    private int _target; // How many times it needs to be done
+    private int _target; // How many times it needs to be done to be completed
     private int _bonus; // Bonus points when completed
 
     // Constructor that sets up a checklist goal with all its values.
@@ -20,15 +20,22 @@ public class CheckListGoal : Goal
         if (_amountCompleted < _target)
         {
             _amountCompleted++;
+            Console.Clear();
             Console.WriteLine($"Progress made! {_amountCompleted}/{_target} completed.");
             if (IsComplete())
             {
+                Console.Clear();
+                ShowCelebration();
                 Console.WriteLine($"Bonus achieved! You earned {_bonus} bonus points!");
+                Thread.Sleep(10000);
+                Console.Clear();
             }
         }
         else
         {
+            Console.Clear();
             Console.WriteLine("This goal is already completed.");
+            Console.WriteLine($"But congrats for doing it again! You have earned {_bonus} points as a bonus!");
         }
     }
 
@@ -41,7 +48,7 @@ public class CheckListGoal : Goal
     public override string GetDetailsString()
     {
         //Using ternary-operator fills the checklist if completed
-        return $"[{(IsComplete() ? "X" : " ")}] {_shortName} ({_description}) -- Currently completed {_amountCompleted}/{_target}";
+        return $"{base.GetDetailsString()} -- Currently completed {_amountCompleted}/{_target}";
     }
 
     public override string GetStringRepresentation()
@@ -54,5 +61,11 @@ public class CheckListGoal : Goal
     public void SetAmountCompleted(int amountCompleted)
     {
         _amountCompleted = amountCompleted;
+    }
+
+    //Getter for the bonus
+    public override int GetBonus()
+    {
+        return _bonus;
     }
 }

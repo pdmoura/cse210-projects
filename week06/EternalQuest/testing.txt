@@ -1,0 +1,4 @@
+1010
+SimpleGoal:nothing,does nothing,10,True
+SimpleGoal:something,do something,20,False
+EternalGoal:eternal,is an eternal goal,1000

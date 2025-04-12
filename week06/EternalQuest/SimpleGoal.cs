@@ -12,12 +12,19 @@ public class SimpleGoal : Goal
     {
         if (!_isComplete)
         {
-            Console.WriteLine($"Congratulations! You have earned {_points} points!");
+            Console.Clear();
+            ShowCelebration();
+            Console.WriteLine($"You have earned {_points} points!");
+            Thread.Sleep(10000);
+            Console.Clear();
             _isComplete = true;
         }
         else
         {
+            Console.Clear();
             Console.WriteLine("This goal is already completed.");
+            Console.WriteLine($"But congrats for doing it again! You have earned {_points} points!");
+
         }
     }
 
@@ -31,11 +38,6 @@ public class SimpleGoal : Goal
     public override bool IsComplete()
     {
         return _isComplete;
-    }
-
-    public override string GetDetailsString()
-    {
-        return $"[{(IsComplete() ? "X" : " ")}] {_shortName} ({_description})";
     }
 
     public override string GetStringRepresentation()
